@@ -1,3 +1,6 @@
+import Objects.Model;
+import Objects.View;
+
 public class GameThread extends Thread {
     private Model model;
     private View view;

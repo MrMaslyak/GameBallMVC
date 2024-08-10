@@ -1,6 +1,10 @@
+package Objects;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import Actions.*;
+
 
 public class View extends JFrame {
     private ArrayList<Ball> balls = new ArrayList<>();
@@ -59,7 +63,7 @@ public class View extends JFrame {
         addKeyListener(key);
         balls.add(ballMain);
 
-        Model model = new Model(balls, hole, labelsStrikeCount, labels);
+
     }
 
     @Override
@@ -99,7 +103,7 @@ public class View extends JFrame {
         public void setH(int h) { this.h = h; }
     }
 
-    class GamePanel extends JPanel {
+    public class GamePanel extends JPanel {
         private ArrayList<Ball> balls;
         private HoleView holeView;
 
@@ -109,7 +113,7 @@ public class View extends JFrame {
             setupPanel();
         }
 
-        private void setupPanel() {
+        public void setupPanel() {
             setOpaque(true);
             setLayout(null);
             setPreferredSize(new Dimension(750, 550));
@@ -137,7 +141,7 @@ public class View extends JFrame {
         }
     }
 
-    class BallCountLabel extends JLabel {
+   public class BallCountLabel extends JLabel {
         private int countBalls;
 
         public BallCountLabel(int countBalls) {
@@ -145,7 +149,7 @@ public class View extends JFrame {
             setupUI();
         }
 
-        private void setupUI() {
+        public void setupUI() {
             setForeground(Color.GRAY);
             setFont(new Font("Arial", Font.BOLD, 15));
             setText("Balls: " + countBalls);
@@ -158,7 +162,7 @@ public class View extends JFrame {
         }
     }
 
-    class BallStrikeCountLabel extends JLabel {
+    public class BallStrikeCountLabel extends JLabel {
         private int countBallsStrike;
 
         public BallStrikeCountLabel(int countBallsStrike) {
@@ -166,7 +170,7 @@ public class View extends JFrame {
             setupUI();
         }
 
-        private void setupUI() {
+        public void setupUI() {
             setForeground(Color.GRAY);
             setFont(new Font("Arial", Font.BOLD, 15));
             setText("Balls Strike: " + countBallsStrike);

@@ -1,3 +1,5 @@
+package Objects;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;

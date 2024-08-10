@@ -1,6 +1,9 @@
+package Actions;
+
 import Interface.updateMoveKey;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import Objects.Ball;
 
 public class Key implements KeyListener, updateMoveKey {
     private Ball ballMain;

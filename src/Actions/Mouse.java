@@ -1,9 +1,14 @@
+package Actions;
+
+import Objects.Ball;
+import Objects.View;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
+
 
 public class Mouse implements MouseListener {
     private ArrayList<Ball> balls;

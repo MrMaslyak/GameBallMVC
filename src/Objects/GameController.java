@@ -1,5 +1,7 @@
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
+package Objects;
+
+import Actions.Key;
+import Actions.Mouse;
 
 public class GameController {
     private Model model;
