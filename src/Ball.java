@@ -21,6 +21,7 @@ public class Ball implements doPaint {
         this.height = height;
         setRad(width / 2);
 
+
     }
 
     public void paint(Graphics g) {

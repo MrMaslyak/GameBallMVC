@@ -128,7 +128,8 @@ public class View extends JFrame {
             g2d.setColor(Color.BLACK);
             g2d.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
 
-            for (Ball ball : balls) {
+            ArrayList<Ball> ballsCopy = new ArrayList<>(balls);
+            for (Ball ball : ballsCopy) {
                 ball.paint(g2d);
             }
 

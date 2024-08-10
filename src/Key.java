@@ -20,10 +20,10 @@ public class Key implements KeyListener, updateMoveKey {
             case KeyEvent.VK_S: downPressed = true; break;
             case KeyEvent.VK_A: leftPressed = true; break;
             case KeyEvent.VK_D: rightPressed = true; break;
-            case KeyEvent.VK_Q: ballMain.setxStep(-100); break;
-            case KeyEvent.VK_E: ballMain.setxStep(100); break;
-            case KeyEvent.VK_R: ballMain.setyStep(-100); break;
-            case KeyEvent.VK_F: ballMain.setyStep(100); break;
+            case KeyEvent.VK_Q: ballMain.setxStep(ballMain.getxStep() - 100); break;
+            case KeyEvent.VK_E: ballMain.setxStep(ballMain.getxStep() + 100); break;
+            case KeyEvent.VK_R: ballMain.setyStep(ballMain.getyStep() - 100); break;
+            case KeyEvent.VK_F: ballMain.setyStep(ballMain.getyStep() + 100); break;
             case KeyEvent.VK_ESCAPE: System.exit(0); break;
         }
     }

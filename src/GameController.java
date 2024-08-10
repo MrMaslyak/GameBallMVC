@@ -12,19 +12,10 @@ public class GameController {
     }
 
     private void initialize() {
-        view.addMouseListener(createMouseListener());
-        view.addKeyListener(createKeyListener());
-    }
-
-    private MouseListener createMouseListener() {
-        return new Mouse(model.getBalls(), view.getBallCountLabel(), view.getGamePanel());
-    }
-
-    private KeyListener createKeyListener() {
-        return new Key(view.getBallMain());
+        view.addMouseListener(new Mouse(model.getBalls(), view.getBallCountLabel(), view.getGamePanel()));
+        view.addKeyListener(new Key(view.getBallMain()));
     }
 
     public void update() {
-
     }
 }

@@ -16,8 +16,11 @@ public class Model {
         this.ballStrikeCount = ballStrikeCount;
         this.ballCount = ballCount;
         ballCount.updateCount(balls.size());
+        startUpdateThread();
+    }
 
-        updateThread = new Thread(() -> {
+    private void startUpdateThread() {
+        new Thread(() -> {
             while (true) {
                 try {
                     updateBalls();
@@ -27,45 +30,44 @@ public class Model {
                     e.printStackTrace();
                 }
             }
-        });
-        updateThread.start();
+        }).start();
     }
 
-    private void updateBalls() {
+
+    public void updateBalls() {
         for (Ball ball : balls) {
             ball.updatePosition();
             ball.applyDamping();
             checkCollision();
+
         }
     }
-    private void checkCollision() {
+    public void checkCollision() {
         int x = 0, y = 0, width = 800, height = 550;
 
-        for (Ball ball : balls) {
+        balls.forEach(ball -> {
             if (ball.getX() < x) {
-                ball.setxStep(-ball.getxStep() *  0.8);
+                ball.setxStep(-ball.getxStep());
                 ball.setX(x);
-            }
-            else if (ball.getX() > width - ball.getRad() * 2) {
-                ball.setxStep(-ball.getxStep() * 0.8);
-                ball.setX(width - ball.getRad() * 2);
+            } else if (ball.getX() > width - ball.getRad()) {
+                ball.setxStep(-ball.getxStep());
+                ball.setX(width - ball.getRad());
             }
             if (ball.getY() < y) {
-                ball.setyStep(-ball.getyStep() *  0.8);
+                ball.setyStep(-ball.getyStep());
                 ball.setY(y);
-            }
-            else if (ball.getY() > height - ball.getRad() * 2) {
-                ball.setyStep(-ball.getyStep() *  0.8);
-                ball.setY(height - ball.getRad() * 2);
+            } else if (ball.getY() > height - ball.getRad()) {
+                ball.setyStep(-ball.getyStep());
+                ball.setY(height - ball.getRad());
             }
 
             ball.applyDamping();
-        }
+        });
     }
 
 
 
-    private void handleCollisions() {
+    public void handleCollisions() {
         HoleDeleted holeDeleted = new HoleDeleted(balls, hole, ballStrikeCount, ballCount);
         holeDeleted.checkCollisions();
         ballCount.updateCount(balls.size());
